@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm, ProfileForm
 
+def index(request):
+    return render(request, 'courts/index.html')
+
 def register(request):
     if request.method == 'POST':
         user_form = CustomUserCreationForm(request.POST)
@@ -16,8 +19,3 @@ def register(request):
         profile_form = ProfileForm()
     return render(request, 'courts/register.html', {'user_form': user_form, 'profile_form': profile_form})
 
-
-# from django.shortcuts import render
-
-# def index(request):
-#     return render(request, 'courts/index.html')
