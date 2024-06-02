@@ -1,0 +1,16 @@
+# Utrzymanie LF dla wszystkich plików
+* text=auto
+
+# Specyficzne ustawienia dla plików tekstowych
+*.py text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+
+# Ustawienia dla plików binarnych (bez konwersji znaków końca linii)
+*.jpg binary
+*.png binary
+*.gif binary
+
+# Wykluczenie virtual environment
+venv/ binary
