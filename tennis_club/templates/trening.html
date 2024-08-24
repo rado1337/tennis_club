@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<main class="container" style="max-width: 80%; margin: 0 auto;">
+    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-tenis">
+        <div class="text-box">
+            <div class="col-lg-12 px-0">
+                <h1 class="display-4 fst-italic">Trenuj z KTF OŁAWA</h1>
+                <p class="lead my-3">Dołącz do KTF Oława i odkryj radość z gry w tenisa w przyjaznej atmosferze, gdzie pasja łączy się z profesjonalizmem!</p>
+                <p class="lead mb-0"><a href="/cennik" class="text-body-emphasis fw-bold">Ceny treningów w sezonie 2024...</a></p>
+            </div>
+        </div>
+    </div>
+  
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary-emphasis">Dzieci do 14 r.ż.</strong>
+                    <h3 class="mb-0">Weronika</h3>
+                    <div class="mb-1 text-body-secondary">środa, czwartek, sobota</div>
+                    <p class="card-text mt-3 mb-4">Zapewnij swojemu dziecku świetny start w tenisie z trenerką Weroniką, licencjonowanym trenerem z wieloletnim doświadczeniem, której pasja i profesjonalizm sprawią, że Twój młody sportowiec pokocha ten sport od pierwszego treningu! Zapisz się już dziś i zacznij przygodę z tenisem!</p>
+                    <a href="/reservations" class="icon-link gap-1 icon-link-hover stretched-link">
+                        Umów się na trening
+                        <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+                    </a>
+                </div>
+                <div class="col-auto d-flex align-items-start">
+                    <img src="{% static 'images/coach1.jpg' %}" alt="Weronika" width="200" height="250" class="img-fluid rounded-10">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-success-emphasis">Dorośli</strong>
+                    <h3 class="mb-0">Tobiasz</h3>
+                    <div class="mb-1 text-body-secondary">poniedziałek, wtorek, piątek</div>
+                    <p class="mt-3 mb-4">Rozpocznij swoją tenisową przygodę z trenerem Tobiaszem, którego doświadczenie i pasja pomogą Ci osiągnąć wyższy poziom gry! Dołącz do treningów i odkryj, jak wiele możesz zyskać pod okiem świetnego coacha i mentora. Zapisz się już dziś i poczuj różnicę!</p>
+                    <a href="/reservations" class="icon-link gap-1 icon-link-hover stretched-link">
+                        Umów się na trening
+                        <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+                    </a>
+                </div>
+                <div class="col-auto d-flex align-items-start">
+                    <img src="{% static 'images/coach2.png' %}" alt="Tobiasz" width="200" height="250" class="img-fluid rounded-10">
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

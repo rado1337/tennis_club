@@ -10,7 +10,7 @@ class CustomUserCreationForm(UserCreationForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['bio', 'location', 'profile_image', 'social_twitter', 'social_facebook', 'tags']
+        fields = ['profile_image', 'tags']
 
 class ReservationForm(forms.ModelForm):
     class Meta:

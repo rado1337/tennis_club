@@ -1,17 +1,22 @@
 from django.shortcuts import render, redirect
-from .forms import CustomUserCreationForm, ProfileForm
+from courts.forms import CustomUserCreationForm, ProfileForm
 from rest_framework import viewsets
 from .models import Court, Reservation
 from .serializers import CourtSerializer, ReservationSerializer
 from rest_framework.permissions import IsAuthenticated
 from datetime import time
 
-# Widok główny
-def index(request):
-    return render(request, 'courts/index.html')
+def reservation_view(request):
+    hours = [time(hour, 0).strftime('%H:%M') for hour in range(10, 19)]
+    courts = list(range(1, 7))  # Numery kortów od 1 do 6
+    context = {
+        'hours': hours,
+        'courts': courts,
+    }
+    return render(request, 'courts/reservation.html', context)
 
-# Widok rejestracji użytkownika
-def register(request):
+
+def register_view(request):
     if request.method == 'POST':
         user_form = CustomUserCreationForm(request.POST)
         profile_form = ProfileForm(request.POST, request.FILES)
@@ -20,7 +25,7 @@ def register(request):
             profile = profile_form.save(commit=False)
             profile.user = user
             profile.save()
-            return redirect('index')
+            return redirect('home')
     else:
         user_form = CustomUserCreationForm()
         profile_form = ProfileForm()
@@ -37,13 +42,3 @@ class ReservationViewSet(viewsets.ModelViewSet):
     queryset = Reservation.objects.all()
     serializer_class = ReservationSerializer
     permission_classes = [IsAuthenticated]
-
-# Widok dla rezerwacji kortów
-def reservation_view(request):
-    hours = [time(hour, 0).strftime('%H:%M') for hour in range(10, 19)]
-    courts = list(range(1, 7))  # Numery kortów od 1 do 6
-    context = {
-        'hours': hours,
-        'courts': courts,
-    }
-    return render(request, 'courts/reservation.html', context)

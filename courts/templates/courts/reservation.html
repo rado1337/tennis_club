@@ -1,13 +1,6 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <title>System rezerwacji kortów</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <script src="{% static 'js/scripts.js' %}" defer></script>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
     <div id="app">
         <div class="container">
             <!-- Wyświetlanie dni tygodnia -->
@@ -89,5 +82,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}

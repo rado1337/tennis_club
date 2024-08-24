@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="auth">
+    <div class="card">
+        <div class="auth__header text-center">
+            <a href="/home">
+                <img src="{% static 'images/logo_final_background2.png' %}" alt="icon" width="800" height="250" />
+            </a>
+            <h3>Register an Account</h3>
+            <p>Create a new account</p>
+        </div>
+
+        <form method="POST" class="form auth__form">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+
+            <div class="auth__actions">
+                <input class="btn btn--sub btn--lg" type="submit" value="Sign Up" />
+            </div>
+        </form>
+        <div class="auth__alternative">
+            <p>Masz już konto?</p>
+            <a href="{% url 'login' %}">Log In</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-3">
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h1 class="display-4 fw-normal text-body-emphasis">Sezon 2024</h1>
+        <p class="fs-5 text-body-secondary">Sprawdź cennik kortów tenisowych, lekcji oraz atrakcyjne zniżki na sezon 2024!</p>
+      </div>
+    </header>
+  
+    <main>
+      <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal">Kort</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title">30 zł<small class="text-body-secondary fw-light">/h</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>bez ClubCard</li>
+                <li>bez udziału w Lidze</li>
+                <li>-</li>
+                <li>-</li>
+              </ul>
+              <button type="button" class="w-100 btn btn-lg btn-outline-primary">Rezerwuj</abutton>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal">Kort z ClubCard</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title">20 zł<small class="text-body-secondary fw-light">/h</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>aktywna ClubCard</li>
+                <li>stała zrabatowana cena</li>
+                <li>-</li>
+                <li>-</li>
+              </ul>
+              <button type="button" class="w-100 btn btn-lg btn-primary">Rezerwuj z ClubCard</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm border-primary">
+            <div class="card-header py-3 text-bg-primary border-primary">
+              <h4 class="my-0 fw-normal">Kort + trening</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title">80 zł<small class="text-body-secondary fw-light">/h</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>godzinna lekcja z trenerem</li>
+                <li>elastyczny grafik</li>
+                <li>-</li>
+                <li>-</li>
+              </ul>
+              <button type="button" class="w-100 btn btn-lg btn-primary">Zamów trening</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <h2 class="display-6 text-center mb-4">Trening dla dzieci - grupy</h2>
+  
+      <div class="table-responsive">
+        <table class="table text-center">
+          <thead>
+            <tr>
+              <th style="width: 34%;"></th>
+              <th style="width: 22%;">Trening indywidualny</th>
+              <th style="width: 22%;">Grupa 2-4 osoby</th>
+              <th style="width: 22%;">Grupa 6-8 osób</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-start">Dni tygodnia</th>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>dowolne</td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>środa, sobota</td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>czwartek</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Cena za 1h</th>
+              <td>80 zł</td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>50 zł</td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>35 zł</td>
+            </tr>
+          </tbody>
+  
+          <tbody>
+            <tr>
+              <th scope="row" class="text-start">Płatność z góry</th>
+              <td>nie</td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>tak</td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>tak</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Własny sprzęt</th>
+              <td>nie</td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>nie</td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>tak</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Możliwość odwołania</th>
+              <td>2 dni przed</td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>5 dni przed</td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>5 dni przed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+{% endblock %}

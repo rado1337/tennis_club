@@ -54,8 +54,8 @@ class Reservation(models.Model):
     RESERVATION_TYPE_CHOICES = [
         ('regular', 'Zwykła'),
         ('league', 'Liga Format'),
-        ('school', 'Szkółka'),
-        ('membership', 'Karnety'),
+        ('school', 'Trening'),
+        ('membership', 'ClubCard'),
     ]
 
     court = models.ForeignKey(Court, on_delete=models.CASCADE)

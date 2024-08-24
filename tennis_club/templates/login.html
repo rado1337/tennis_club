@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="auth">
+    <div class="card text-center">
+        <div class="auth__header">
+            <a href="/home">
+                <img src="{% static 'images/logo_final_background2.png' %}" alt="icon" width="780" height="250" />
+            </a>
+            <h3>Strona logowania</h3>
+            <p>Witaj ponownie!</p>
+        </div>
+
+        <form method="POST" class="form auth__form">
+            {% csrf_token %}
+            <div class="form__field">
+                <label for="username">Login: </label>
+                <input class="input input--text" id="username" type="text" name="username" placeholder="Wpisz login....." required>
+            </div>
+            <div class="form__field">
+                <label for="password">Hasło: </label>
+                <input class="input input--password" id="password" type="password" name="password" placeholder="••••••••" required>
+            </div>
+            <div class="auth__actions">
+                <input class="btn btn--sub btn--lg" type="submit" value="Zaloguj" />
+                <a href="{% url 'reset_password' %}" class="btn btn--sub btn--lg">Przypomnij hasło</a>
+            </div>
+        </form>
+        <div class="auth__alternative">
+            <br>
+            <p>Nie masz konta?</p>
+            <a href="{% url 'register' %}" class="btn btn--sub btn--lg">Zarejestruj się!</a>
+            <br>
+        </div>
+    </div>
+</div>
+{% endblock %}
