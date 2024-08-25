@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "courts",
+    "courts.apps.CourtsConfig",
+    "accounts.apps.AccountsConfig",
     "rest_framework",
 ]
 
