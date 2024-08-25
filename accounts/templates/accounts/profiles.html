@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Lista graczy</h1>
+    <section class="devlist">
+        <div class="container">
+            <div class="row">
+
+                {% for profile in profiles %}
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="card-img-top" src="{{ profile.imageURL }}" alt="image">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ profile.name }}</h5>
+                            <p class="card-text">{{ profile.short_intro|slice:"60" }}</p>
+                            <p class="card-text">{{ profile.short_bio|slice:"150" }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="{% url 'profile-detail' profile.id %}" class="btn btn-sm btn-outline-secondary">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

@@ -8,6 +8,7 @@ from . import views  # Importujemy widoki z głównego folderu
 urlpatterns = [
     path('admin/', admin.site.urls),  # Ścieżka do panelu administracyjnego
     path('home/', views.home_view, name='home'),  # Główna strona pod URL /home
+    path('accounts/', include('accounts.urls')),
     path('', views.home_redirect, name='home_redirect'),  # Przekierowanie głównego URL na /home/
     path('reservations/', include('courts.urls')),  # Przekierowanie do aplikacji 'courts'
     path('trening/', views.training_view, name='trening'),

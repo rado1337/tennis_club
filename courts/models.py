@@ -1,7 +1,6 @@
-from django.contrib.auth.models import AbstractUser
 from django.utils import timezone
 from django.db import models
-from accounts.models import User 
+from accounts.models import User
 
 
 # Model dla kortu tenisowego
