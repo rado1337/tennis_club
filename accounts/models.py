@@ -28,6 +28,9 @@ def __str__(self):
 class Tag(models.Model):
     name = models.CharField(max_length=255)
     created = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.name
 
 class Trainer(models.Model):
     profile = models.OneToOneField(Profile, on_delete=models.CASCADE)

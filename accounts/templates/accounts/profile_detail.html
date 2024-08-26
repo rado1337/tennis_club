@@ -2,7 +2,7 @@
 
 {% block content %}
 <main class="profile my-md">
-    <div class="container" style="width: 40%; margin: 0 auto;">
+    <div class="container" style="width: 45%; margin: 0 auto;">
         <div class="layout">
             <div class="column column--1of3">
                 <div class="card text-center">
@@ -11,7 +11,7 @@
                         <h2 class="dev__name">{{ profile.name }}</h2>
                         <p class="dev__location">Miasto: {{ profile.city }}</p>
                         {% if request.user.profile.id != profile.id %}
-                        <a href="#" class="btn btn--sub btn--lg">Wyślij wiadomość</a>
+                        <a href="#" class="btn btn--sub btn--lg" >Wyślij wiadomość</a>
                         {% endif %}
                     </div>
                 </div>
@@ -21,15 +21,13 @@
                     <h3 class="info__title">O mnie</h3>
                     <p class="info__about">{{ profile.bio }}</p>
                 </div>
-                <div class="info">
-                    <h3 class="info__title">Tags</h3>
-                    <div class="info__tags">
+                <div class="info2">
+                    <h3 class="tags__title">Tags</h3>
                         {% for tag in profile.tags.all %}
-                        <span class="tag tag--pill tag--sub tag--lg">
-                            <small>{{ tag.name }}</small>
+                        <span class="badge bg-primary tag--pill" style="background-color: orange !important; color: white !important; font-size: 1.2rem; font-weight: 1000; border-radius: 0.25rem;">
+                            <small style="color: white !important;">{{ tag.name }}</small>
                         </span>
                         {% endfor %}
-                    </div>
                 </div>
             </div>
         </div>
