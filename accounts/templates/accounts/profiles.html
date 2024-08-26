@@ -1,22 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Lista graczy</h1>
-    <section class="devlist">
+<h1 class="text-center">Lista graczy</h1>
+    <section class="players">
         <div class="container">
-            <div class="row">
-
+            <div class="row justify-content-center">
                 {% for profile in profiles %}
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <div class="card mb-4 shadow-sm">
-                        <img class="card-img-top" src="{{ profile.imageURL }}" alt="image">
+                        <img class="card-img-top" src="{{ profile.imageURL }}" alt="image" style="width: 100%; height: 280px; object-fit: cover;">
                         <div class="card-body">
                             <h5 class="card-title">{{ profile.name }}</h5>
                             <p class="card-text">{{ profile.short_intro|slice:"60" }}</p>
                             <p class="card-text">{{ profile.short_bio|slice:"150" }}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <a href="{% url 'profile-detail' profile.id %}" class="btn btn-sm btn-outline-secondary">View</a>
+                                    <a href="{% url 'profile-detail' profile.id %}" class="btn btn-sm btn-outline-secondary">Profil gracza</a>
                                 </div>
                             </div>
                         </div>

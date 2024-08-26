@@ -1,28 +1,44 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<div class="auth">
-    <div class="card">
+<div class="auth d-flex justify-content-center align-items-center" style="height: 70vh;">
+    <div class="card" style="width: 100%; max-width: 600px;">
         <div class="auth__header text-center">
             <a href="/home">
-                <img src="{% static 'images/logo_final_background2.png' %}" alt="icon" width="800" height="250" />
+                <img src="{% static 'images/logo_final_background2.png' %}" alt="icon" width="400" height="125" style="margin-left: 240px;"/>
             </a>
-            <h3>Register an Account</h3>
-            <p>Create a new account</p>
+            <h3>Dołącz do Klubu</h3>
+            <p>Stwórz konto</p>
         </div>
 
         <form method="POST" class="form auth__form">
             {% csrf_token %}
-            {{ user_form.as_p }}
-            {{ profile_form.as_p }}
+            {% for field in user_form %}
+            <div class="form__field text-center">
+                <label>{{field.label}}</label>
+                {{field}}
+                {% for error in field.errors %}
+                <p style="color: red;">{{error}}</p>
+                {% endfor %}
+            </div>
+            {% endfor %}
+            {% for field in profile_form %}
+            <div class="form__field text-center">
+                <label>{{field.label}}</label>
+                {{field}}
+                {% for error in field.errors %}
+                <p style="color: red;">{{error}}</p>
+                {% endfor %}
+            </div>
+            {% endfor %}
 
-            <div class="auth__actions">
+            <div class="auth__actions text-center">
                 <input class="btn btn--sub btn--lg" type="submit" value="Sign Up" />
             </div>
         </form>
-        <div class="auth__alternative">
+        <div class="auth__alternative text-center">
             <p>Masz już konto?</p>
-            <a href="{% url 'login' %}">Log In</a>
+            <a href="{% url 'login' %}" class="btn btn--sub btn--lg">Log In</a>
         </div>
     </div>
 </div>

@@ -12,16 +12,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         switch (selectedType) {
             case '1':
-                newValue = "30 zł"; // Zwykła
+                newValue = "30 zł"; 
                 break;
             case '2':
-                newValue = "0 zł"; // Liga Format
+                newValue = "0 zł"; 
                 break;
             case '3':
-                newValue = "80 zł"; // Trening
+                newValue = "80 zł"; 
                 break;
             case '4':
-                newValue = "20 zł"; // Club Card
+                newValue = "20 zł"; 
                 break;
             default:
                 newValue = "30 zł";
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const isToday = date.getTime() === today.getTime();
             weekdays.push({
-                day: days[(date.getDay() + 6) % 7], // Zaczynanie od poniedziałku
+                day: days[(date.getDay() + 6) % 7], 
                 date: date.toISOString().split('T')[0],
                 isToday: isToday,
             });
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function generateWeekdays(startDate) {
         const weekdays = getWeekdays(startDate);
         const weekdaysContainer = document.querySelector(".box-weekdays");
-        weekdaysContainer.innerHTML = ''; // Czyść istniejący kontent
+        weekdaysContainer.innerHTML = ''; 
 
         weekdays.forEach((weekday) => {
             const li = document.createElement('li');
@@ -117,8 +117,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.querySelectorAll('.weekday').forEach(day => day.classList.remove('active'));
                 li.classList.add('active');
                 setCurrentDate(weekday.date);
-                resetTableSelections(); // Resetuje zaznaczenia w tabeli
-                updateTableValues(); // Aktualizuje wartości w tabeli
+                resetTableSelections(); 
+                updateTableValues(); 
             });
             weekdaysContainer.appendChild(li);
         });
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const cells = document.querySelectorAll(".table-reservation td.res");
         cells.forEach(function (cell) {
             cell.classList.remove("selected", "booked", "zwykla", "liga-format", "trening", "karnety");
-            cell.textContent = "30 zł"; // Przywróć domyślną wartość tekstu
+            cell.textContent = "30 zł"; 
         });
     }
 

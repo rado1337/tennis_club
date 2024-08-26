@@ -14,13 +14,11 @@ def reservation_view(request):
     }
     return render(request, 'courts/reservation.html', context)
 
-# Widok API dla modelu Court
 class CourtViewSet(viewsets.ModelViewSet):
     queryset = Court.objects.all()
     serializer_class = CourtSerializer
     permission_classes = [IsAuthenticated]
 
-# Widok API dla modelu Reservation
 class ReservationViewSet(viewsets.ModelViewSet):
     queryset = Reservation.objects.all()
     serializer_class = ReservationSerializer
