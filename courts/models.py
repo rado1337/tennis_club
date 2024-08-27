@@ -26,7 +26,7 @@ class Reservation(models.Model):
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     type = models.CharField(max_length=50, choices=RESERVATION_TYPE_CHOICES)  
-    created_at = models.DateTimeField(default=timezone.now)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.user.username} - {self.court} - {self.start_time} to {self.end_time}"
