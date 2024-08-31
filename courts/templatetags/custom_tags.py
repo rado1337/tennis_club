@@ -31,9 +31,12 @@ def check_reservation(time_data, court, date_data, csrf_token):
                                     <input type="hidden" name="end_time" value="{datetime_object + timedelta(hours=1)}">
                                     <div class="form-group">
                                     <select name="reservation_type" class="form-control">
-                                        <option value="regular">Normalne</option>
+                                        <option value="regular">Zwykła</option>
+                                        <option value="league">Liga Format</option>
+                                        <option value="school">Trening</option>
+                                        <option value="membership">ClubCard</option>
                                     </select>
                                 </div>
-                            <button type="submit" class="btn btn-success btn-sm">Reserve</button>,
+                            <button type="submit" class="btn btn-success btn-sm">Zarezerwuj</button>,
                         </form>
                 </td>""")

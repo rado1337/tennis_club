@@ -2,26 +2,26 @@
 
 {% block content %}
 <main class="profile my-md">
-    <div class="container" style="width: 45%; margin: 0 auto;">
-        <div class="layout">
-            <div class="column column--1of3">
+    <div class="container " style="width: 45%; margin: 0 auto;">
+        <div class="d-flex flex-column justify-content-sm-center">
+            <div class="">
                 <div class="card text-center">
                     <div class="card__body dev">
                         <img class="avatar avatar--xl" src="{{ profile.imageURL }}" alt="Profile Image" style="width: 50%; height: 320px;" />
                         <h2 class="dev__name">{{ profile.name }}</h2>
                         <p class="dev__location">Miasto: {{ profile.city }}</p>
                         {% if request.user.profile.id != profile.id %}
-                        <a href="#" class="btn btn--sub btn--lg" >Wyślij wiadomość</a>
+                        <a href="mailto:{{ profile.email }}" class="btn btn--sub btn--lg" >Wyślij wiadomość</a>
                         {% endif %}
                     </div>
                 </div>
             </div>
-            <div class="column column--2of3">
-                <div class="info">
-                    <h3 class="info__title">O mnie</h3>
-                    <p class="info__about">{{ profile.bio }}</p>
+            <div class="text-center">
+                <div class="">
+                    <h3 class="info__title mt-4">O mnie</h3>
+                    <p class="lead text-justify">{{ profile.bio }}</p>
                 </div>
-                <div class="info2">
+                <div class="">
                     <h3 class="tags__title">Tags</h3>
                         {% for tag in profile.tags.all %}
                         <span class="badge bg-primary tag--pill" style="background-color: orange !important; color: white !important; font-size: 1.2rem; font-weight: 1000; border-radius: 0.25rem;">

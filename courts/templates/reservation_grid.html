@@ -25,19 +25,24 @@
 <body> {% endcomment %}
 {% block content %}
     <div class="container mt-5">
-    <h1 class="mb-4">Reservation Grid</h1>
+    
+    <div class="d-flex justify-content-center">
+    <h1 class="mb-4">Siatka godzin</h1>
+    </div>
 
-    <form method="GET" class="form-inline mb-4">
-        <label for="date" class="mr-2">Select Date:</label>
-        <input type="date" id="date" name="date" value="{{ selected_date }}" class="form-control mr-2" onchange="this.form.submit();">
-        <button type="submit" class="btn btn-primary">Go</button>
-    </form>
+    <div class="d-flex justify-content-center">
+        <form method="GET" class="form-inline mb-4">
+            <label for="date" class="mr-2">Wybierz datę:</label>
+            <input type="date" id="date" name="date" value="{{ selected_date }}" class="form-control mr-2" onchange="this.form.submit();">
+            <button type="submit" class="btn btn-primary">Wybierz</button>
+        </form>
+    </div>
 
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead class="thead-light">
                 <tr>
-                    <th class="text-center">Time</th>
+                    <th class="text-center">Godzina</th>
                     {% for court in courts %}
                         <th class="text-center">{{ court }}</th>
                     {% endfor %}

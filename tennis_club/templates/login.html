@@ -5,33 +5,33 @@
     <div class="card text-center">
         <div class="auth__header">
             <a href="/home">
-                <img src="{% static 'images/logo_final_background2.png' %}" alt="icon" width="400" height="130" style="margin-left: 250px;"/>
+                <img src="{% static 'images/logo_final_background.png' %}" alt="icon"  height="130"/>
             </a>
             <h3>Strona logowania</h3>
             <p>Witaj ponownie!</p>
         </div>
 
-        <form method="POST" class="form auth__form">
+        <form method="POST" class="form auth__form d-flex flex-column justify-content-sm-center mx-5">
             {% csrf_token %}
-            <div class="form__field">
+            <div class="form__field d-flex flex-column justify-content-sm-center">
                 <label for="username">Login: </label>
                 <input class="input input--text" id="username" type="text" name="username" placeholder="Wpisz login....." required>
             </div>
-            <div class="form__field">
+            <div class="form__field d-flex flex-column justify-content-sm-center">
                 <label for="password">Hasło: </label>
                 <input class="input input--password" id="password" type="password" name="password" placeholder="••••••••" required>
             </div>
-            <div class="auth__actions">
-                <input class="btn btn--sub btn--lg" type="submit" value="Zaloguj" />
+            <div class="auth__actions d-flex flex-column justify-content-sm-center">
+                <input class="btn btn--sub btn--lg mb-5 mt-3" type="submit" value="Zaloguj" />
                 <a href="{% url 'reset_password' %}" class="btn btn--sub btn--lg">Przypomnij hasło</a>
             </div>
-        </form>
-        <div class="auth__alternative">
+        <div class="auth__alternative d-flex flex-column justify-content-sm-center">
             <br>
             <p>Nie masz konta?</p>
             <a href="{% url 'register' %}" class="btn btn--sub btn--lg">Zarejestruj się!</a>
             <br>
         </div>
+        </form>
     </div>
 </div>
 {% endblock %}
