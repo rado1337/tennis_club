@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
     <div id="app">
         <div class="container">
@@ -8,11 +8,12 @@
                 <div class="wrapper-weekdays">
                     <button class="btn prev-week"><span class="far fa-long-arrow-left"></span> poprzedni tydzień</button>
                     <ul class="nav box-weekdays">
-                        <!-- Dynamically populated by JavaScript -->
+                        {% comment %} <li class="weekday" data-date="2024-08-30">Sb</li> {% endcomment %}
+                        <input type="date" id="court-date" name="court-date">
                     </ul>
                     <button class="btn next-week">następny tydzień <span class="far fa-long-arrow-right"></span></button>
                 </div>
-                <h3 class="current-date"></h3>
+                <h3 class="current-date">{% now "Y-M-D"%}</h3>
             </div>
 
             <!-- Typ rezerwacji -->
@@ -40,12 +41,9 @@
                     <thead>
                         <tr>
                             <th>Godzina</th>
-                            <th>Kort 1</th>
-                            <th>Kort 2</th>
-                            <th>Kort 3</th>
-                            <th>Kort 4</th>
-                            <th>Kort 5</th>
-                            <th>Kort 6</th>
+                            {% for court in courts %}
+                            <th>Kort {{ court }}</th>
+                            {% endfor %}
                         </tr>
                     </thead>
                     <tbody>
@@ -53,7 +51,7 @@
                         <tr>
                             <td>{{ hour }}</td>
                             {% for court in courts %}
-                            <td class="res" data-court="{{ court }}" data-hour="{{ hour }}">30 zł</td>
+                                <td class="res" data-court="{{ court }}" data-hour="{{ hour }}" id="{{ court }}-{{ hour }}">30 zł</td>
                             {% endfor %}
                         </tr>
                         {% endfor %}
@@ -77,9 +75,14 @@
                         <input type="checkbox" id="terms" name="terms">
                         <label for="terms">Wyrażam zgodę na przetwarzanie danych osobowych</label>
                     </div>
+                    {% if user.is_authenticated %}
                     <button type="submit" class="btn btn-primary">Rezerwuj</button>
+                    {% endif %}
+
                 </form>
+
             </div>
+            
         </div>
     </div>
 {% endblock %}

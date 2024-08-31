@@ -1,0 +1,54 @@
+.header_area {
+    width: 100%;
+    background-color: #3D3D3D;
+    color: white;
+    border-radius: 0;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.header_area .logo {
+    width: 190px; 
+    height: auto;
+    margin-left: 30px; 
+}
+
+.header_area .nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    align-items: center; 
+    height: 70px; 
+}
+
+.header_area .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, opacity 0.3s;
+}
+
+.header_area .nav-link:hover {
+    background-color: #95ff00;
+    color: black;
+    border-radius: 5px;
+}
+
+.header_area .btn-login, .header_area .btn-signup {
+    background-color: #95ff00;
+    color: black;
+    border: 2px solid #95ff00;
+    border-radius: 5px;
+    transition: opacity 0.3s, color 0.3s;
+    height: 40px; 
+    line-height: 20px; 
+}
+
+.header_area .btn-login:hover, .header_area .btn-signup:hover {
+    opacity: 0.75;
+    color: black;
+}

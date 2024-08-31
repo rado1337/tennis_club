@@ -8,7 +8,7 @@ media/
 staticfiles/
 
 # If your build process includes output of compiled CSS from LESS/SASS
-static/css/
+# static/css/
 
 # Django secret key and settings files
 .env

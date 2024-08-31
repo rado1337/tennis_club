@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% comment %} <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Grid</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .reserved {
+            background-color: #f8d7da;
+        }
+        .available {
+            background-color: #d4edda;
+        }
+        .reserved, .available {
+            text-align: center;
+            vertical-align: middle;
+        }
+        .time-slot {
+            font-weight: bold;
+        }
+    </style>
+<body> {% endcomment %}
+{% block content %}
+    <div class="container mt-5">
+    
+    <div class="d-flex justify-content-center">
+    <h1 class="mb-4">Siatka godzin</h1>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <form method="GET" class="form-inline mb-4">
+            <label for="date" class="mr-2">Wybierz datę:</label>
+            <input type="date" id="date" name="date" value="{{ selected_date }}" class="form-control mr-2" onchange="this.form.submit();">
+            <button type="submit" class="btn btn-primary">Wybierz</button>
+        </form>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th class="text-center">Godzina</th>
+                    {% for court in courts %}
+                        <th class="text-center">{{ court }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% load custom_tags %}
+                {% for time_slot in time_slots %}
+                    <tr>
+                        <td class="time-slot text-center">{{ time_slot }}</td>
+                        {% for court in courts %}
+                            {% check_reservation time_slot court selected_date csrf_token %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+{% comment %} 
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html> {% endcomment %}
+
+
