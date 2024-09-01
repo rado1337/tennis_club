@@ -21,8 +21,8 @@ class Profile(models.Model):
             url = 'media/profiles/tenis_17.png'
         return url
 
-def __str__(self):
-    return str(self.user.username)
+    def __str__(self):
+        return str(self.user.username)
 
 
 class Tag(models.Model):

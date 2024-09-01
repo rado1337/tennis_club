@@ -30,10 +30,10 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            messages.success(request, 'Successfully logged in!')
+            messages.success(request, 'Jesteś zalogowany!')
             return redirect('home')
         else:
-            messages.error(request, 'Invalid username or password.')
+            messages.error(request, 'Niepoprawny login lub hasło.')
 
     return render(request, 'login.html')
 
@@ -55,10 +55,10 @@ def register_view(request):
             profile.save()
 
             login(request, user)
-            messages.success(request, 'Registration successful!')
+            messages.success(request, 'Rejestracja zakończona!')
             return redirect('home')
         else:
-            messages.error(request, 'An error occurred during registration.')
+            messages.error(request, 'Nastąpił błąd w trakcie rejestracji.')
 
     else:
         user_form = CustomUserCreationForm()
@@ -69,7 +69,7 @@ def register_view(request):
 @login_required(login_url='login')
 def logout_view(request):
     logout(request)
-    messages.info(request, 'You have been logged out.')
+    messages.info(request, 'Zostałeś wylogowany.')
     return redirect('home')
 
 class CustomPasswordResetView(PasswordResetView):

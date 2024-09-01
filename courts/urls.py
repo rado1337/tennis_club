@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from .views import (
     CourtViewSet,
     ReservationViewSet,
-    reservation_view,
+    # reservation_view,
     CreateReservationView,
     reservation_grid,
     reserve,
@@ -16,7 +16,7 @@ router.register(r"reservations", ReservationViewSet)
 
 
 urlpatterns = [
-    path("", reservation_view, name="reservations"),
+    # path("", reservation_view, name="reservations"),
     path("api/", include(router.urls)),
     path(
         "api/create-reservation/",

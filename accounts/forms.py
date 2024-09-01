@@ -8,6 +8,14 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ["username", "email", "password1", "password2"]
+        labels = {
+            "username": "Nazwa użytkownika",
+            "email": "Adres email",
+        }
+    def __init__(self, *args, **kwargs):
+        super(CustomUserCreationForm, self).__init__(*args, **kwargs)
+        self.fields['password1'].label = "Hasło"
+        self.fields['password2'].label = "Potwierdź hasło"
 
 
 class ProfileForm(ModelForm):
@@ -16,6 +24,9 @@ class ProfileForm(ModelForm):
         fields = [
             "profile_image",
         ]
+        labels = {
+            "profile_image": "Zdjęcie użytkownika",
+        }
 
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)

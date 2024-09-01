@@ -14,20 +14,20 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 
 
-def reservation_view(request):
-    hours = [time(hour, 0).strftime("%H:%M") for hour in range(10, 19)]
-    courts = Court.objects.all().values_list("number", flat=True)
-    date = datetime.now().date()
-    reservations = Reservation.objects.filter(start_time__icontains=date).values_list(
-        "start_time", flat=True
-    )
-    time_list = []
-    for time_data in reservations:
-        time_list.append(datetime.strftime(time_data, "%H:%M"))
-    print(time_list)
-    # courts = list(range(1, 7))  # Numery kortów od 1 do 6
-    context = {"hours": hours, "courts": courts, "time_list": time_list}
-    return render(request, "courts/reservation.html", context)
+# def reservation_view(request):
+#     hours = [time(hour, 0).strftime("%H:%M") for hour in range(10, 19)]
+#     courts = Court.objects.all().values_list("number", flat=True)
+#     date = datetime.now().date()
+#     reservations = Reservation.objects.filter(start_time__icontains=date).values_list(
+#         "start_time", flat=True
+#     )
+#     time_list = []
+#     for time_data in reservations:
+#         time_list.append(datetime.strftime(time_data, "%H:%M"))
+#     print(time_list)
+#     # courts = list(range(1, 7))  # Numery kortów od 1 do 6
+#     context = {"hours": hours, "courts": courts, "time_list": time_list}
+#     return render(request, "courts/reservation.html", context)
 
 
 class CourtViewSet(viewsets.ModelViewSet):
@@ -95,19 +95,19 @@ def reserve(request):
         start_time = request.POST.get("start_time")
         reservation_type = request.POST.get("reservation_type")
         normalized_date_str = start_time.replace("a.m.", "AM").replace("p.m.", "PM")
-        # Parse the date string into a datetime object
+        # parsowanie stringa na datetime
         date_obj = datetime.strptime(normalized_date_str, "%Y-%m-%d %H:%M:%S")
 
-        # Format the datetime object into the desired format
+        # formatowanie datetime
         end_time = date_obj + timedelta(hours=1)
 
         court = Court.objects.get(id=court_id)
 
-        # Ensure no overlapping reservations
+        # nadpisanie rezerwacji
         if Reservation.objects.filter(
             court=court, start_time__lt=end_time, end_time__gt=date_obj
         ).exists():
-            return HttpResponse("This time slot is already reserved.", status=400)
+            return HttpResponse("Ta godzina jest zarezerwowana.", status=400)
 
         reservation = Reservation.objects.create(
             court=court,

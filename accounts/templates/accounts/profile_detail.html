@@ -2,7 +2,7 @@
 
 {% block content %}
 <main class="profile my-md">
-    <div class="container " style="width: 45%; margin: 0 auto;">
+    <div class="container" style="width: 45%; margin: 0 auto;">
         <div class="d-flex flex-column justify-content-sm-center">
             <div class="">
                 <div class="card text-center">
@@ -11,7 +11,7 @@
                         <h2 class="dev__name">{{ profile.name }}</h2>
                         <p class="dev__location">Miasto: {{ profile.city }}</p>
                         {% if request.user.profile.id != profile.id %}
-                        <a href="mailto:{{ profile.email }}" class="btn btn--sub btn--lg" >Wyślij wiadomość</a>
+                        <a href="mailto:{{ profile.email }}" class="btn btn--sub btn--lg">Wyślij wiadomość</a>
                         {% endif %}
                     </div>
                 </div>
@@ -19,7 +19,7 @@
             <div class="text-center">
                 <div class="">
                     <h3 class="info__title mt-4">O mnie</h3>
-                    <p class="lead text-justify">{{ profile.bio }}</p>
+                    <p class="lead text_justify">{{ profile.bio }}</p>
                 </div>
                 <div class="">
                     <h3 class="tags__title">Tags</h3>
